@@ -1,184 +1,139 @@
-# Links
+# Step 1: Internet vs Web
+
+- The Internet is the network of networks ([wiki](https://en.wikipedia.org/wiki/Internet)
+- The web is the est of apps that use the Internet for communication
+- This communication often uses [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol), a special language for communication (do not confuse with a programming language)
+
+- web clients send HTTP requests to web servers
+- web servers send HTTP responses back
+
+![](https://i.imgur.com/1uarUI0.png)
+**[⬇ Download this PDF cheatsheet an HTTP ⬇](https://rakhim.org/ce/HTTP_notes_diagram_1.pdf)**
+
+# Step 2: Telnet client
 
 ## Telnet on Windows:
 
-[Enable telnet in Windows 10](https://social.technet.microsoft.com/wiki/contents/articles/38433.windows-10-enabling-telnet-client.aspx?Redirected=true)
+1. [Enable telnet in Windows 10](https://social.technet.microsoft.com/wiki/contents/articles/38433.windows-10-enabling-telnet-client.aspx?Redirected=true)
 
+## Telnet on Mac:
+
+Macs have telnet built in, so nothing to install here.
+
+## Make a HTTP request via telnet
+
+### Windows
 1. Type Windows Key + R to open the Run command dialog. 
 2. Type cmd and hit the Enter key.
-3. Type `telnet` and hit Enter to access the Telnet Client.
 
-## Python
+### macOS
+1. Launch `Terminal.app`
 
-- [Download Python](https://www.python.org/downloads/) (get version 3.7.1 or higher)
-- [VS Code](https://www.python.org/downloads/) (code and text editor)
+### Make a connection
+Type:
 
-## Python Flask framework
+```
+telnet localhost 8080
+Host: localhost
+```
 
-- [Flask](http://flask.pocoo.org)
-- [Flask Quickstart](http://flask.pocoo.org/docs/1.0/quickstart/)
+Hit `Enter` twice in the end.
 
-## More in-depth stuff
+![](https://i.imgur.com/b8ANTXs.png)
+**[⬇ Download this PDF cheatsheet an HTTP ⬇](https://rakhim.org/ce/HTTP_notes_diagram_2.pdf)**
 
-- [venv - Creation of virtual environments](https://docs.python.org/3/library/venv.html)
-- [The Python Tutorial](https://docs.python.org/3/tutorial/index.html)
-- [Learn Python in Y minutes](https://learnxinyminutes.com/docs/python/)
+(If you're on macOS High Sierra or Mojave, type `nc` instead of `telnet`.)
 
-# Workshop plan
+# Step 3: Basics of Python
 
-## Part 1: Theory
+Try out Python on [https://repl.it](https://repl.it). Login and choose "Python". Enter code in the right pane, hit `Run`.
 
-1.  Internet vs Web
-2.  Clients and servers
-3.  HTTP
-4.  Quiz
-    1.  Web without the internet?
-    2.  Do you **need** to know everything about the internet?
-    3.  Internet, not the web: wifi router, satellite, google chrome
+```python
+
+# numbers
+2 + 3
+
+# print something onto the screen
+print("Something")
+
+# True, False and conditions
+cloudy = True
+if cloudy:
+    print("Take umbrella!")
+else:
+    print("Relax")
+
+# strings as variables
+cloudy = True
+message_1 = "Take umbrella!"
+message_2 = "Relax!"
+
+if cloudy:
+    print(message_1)
+else:
+    print(message_2)
+
+# concatenation (glue)
+name = "Jake"
+print(message_1 + name)
+
+# input
+name = input("What's your name? ")
+print(message_1 + name)
+```
+
+## Download tools
+
+- [Download Python interpreter](https://www.python.org/downloads/) (get version 3.7.1 or higher)
+- [VS Code editor](https://www.python.org/downloads/) (code and text editor)
 
 
-## Part 2: Request, building a client (18:00 - 18:15)
 
-1.  HTTP request
-    1.  Restaurant analogy
-    2.  Request example
-2.  Terminal 101
-    1.  Enable in Windows
-    2.  Try telnet, fail
+# Step 4: Create a simple HTTP server
 
+Even a simple HTTP server, which consists of just 4 lines of code, is a pretty complex program. Each line includes tens and tens of different concepts.
 
-## Part 3: Response, building a server (18:15 - 18:45)
+One way to go — a classic, “proper” way — is to start with the basics of Python and make our way up the ladder of difficulty. We’d need to learn about variables, modules, importing, TCP, handlers, with-statements and command line arguments. It’s quite a list, and each concept requires you to at least gave some idea about a dozen more. It’ll take us a few days or even weeks!
 
-1.  Install Python <https://www.python.org/downloads/>
-    1.  3.7.x, add PATH
-    2.  Windows: `python`, macOS: `python3`
-2.  Install VS Code
+Another way to go is to just give you those 4 lines to copy and paste and hope it works. You’ll have no idea what’s happening, but the HTTP server will probably be launched successfully.
+
+I believe there’s the third way. I will indeed give you 4 lines of code to copy and paste. But this is a loan, not a gift. You’ll have to pay back!
+
+In the next workshops we will look back and cover the missing parts. I call this a “learning credit card”. We’ll always jump ahead and do something cool, but then at some point we’ll come back and “pay the debt”. As long as we’re disciplines and don’t take too many “knowledge loans”, we’ll be fine and it’ll be fun!
+
+Here is the code:
 
     import http.server
     import socketserver
     
     with socketserver.TCPServer(("", 8080), http.server.SimpleHTTPRequestHandler) as httpd:
         httpd.serve_forever()
+        
+Save this file as `server.py` in a folder called `server` on your Desktop, navigate to that folder in the Terminal:
 
-1.  Create HTML.
-    1.  Basic HTML and CSS
+### Windows
+Assuming your folder is saved on the Desktop, in the Terminal type `cd C:\Users\YOUR_USERNAME\Desktop\server` 
 
+Don’t forget to change `YOUR_USERNAME` to your actual username.
 
-## Part 4: Back to the client
+### macOS
 
-1.  Make request again
-2.  Get HTML
-3.  Save and open
+Assuming your folder is saved on the Desktop, type `cd /Users/YOUR_USERNAME/Desktop/server` in the Terminal.
 
+## Then run the server
 
-## Part 5: Flask
+### Windows
 
+```
+py server.py
+```
 
-### Basic Python
+### macOS
 
-    
-    # numbers
-    2 + 3
-    
-    # print
-    print("Something")
-    
-    # if
-    cloudy = True
-    if cloudy:
-        print("Take umbrella!")
-    else:
-        print("Relax")
-    
-    # strings as variables
-    cloudy = True
-    message_1 = "Take umbrella!"
-    message_2 = "Relax!"
-    
-    if cloudy:
-        print(message_1)
-    else:
-        print(message_2)
-    
-    # concat (glue)
-    name = "Jake"
-    print(message_1 + name)
-    
-    # input
-    name = input("What's your name? ")
-    print(message_1 + name)
-    
-    # functions
-    def report_weather(name, cloudy):
-        if cloudy:
-            print("Take umbrella, " + name + "!")
-        else:
-            print("Relax, " + name + ".")
+```
+python3 server.py
+```
 
+# Step 5: Back to the client
 
-### Venv
-
-    python3 -m venv path/to/venv/folder
-
-
-### Pip
-
-    mkdir myprojec
-    cd myproject
-    python3 -m venv venv
-
-*nix:
-
-    . venv/bin/activate
-
-Windows:
-
-    venv\Scripts\activate
-
-Install flask:
-
-    pip install Flask
-
-
-### Flask Basics
-
-    from flask import Flask
-    app = Flask(__name__)
-    
-    @app.route('/')
-    def hello_world():
-        return 'Hello, World!'
-
-Running:
-
-    export FLASK_APP=hello.py
-    flask run
-
-On Windows cmd:
-
-    C:\path\to\app>set FLASK_APP=hello.py
-
-On Windows PowerShell:
-
-    PS C:\path\to\app> $env:FLASK_APP = "hello.py"
-
-
-### Flask routing
-
-    @app.route('/')
-    def index():
-        return 'Index Page'
-    
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World'
-
-
-### Variables in routing
-
-    @app.route('/user/<username>')
-    def show_user_profile(username):
-        return 'User %s' % username
-
-
-
+Now you repeat the HTTP request using the telnet app. You should see a response.
