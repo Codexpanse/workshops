@@ -1,6 +1,10 @@
 import http.server
 import socketserver
 
-with socketserver.TCPServer(("", 8080), http.server.SimpleHTTPRequestHandler) as httpd:
-    print("Server started...")
-    httpd.serve_forever()
+host = "localhost"
+port = 8080
+
+server = socketserver.TCPServer((host, port), http.server.SimpleHTTPRequestHandler)
+
+print("Server started...")
+server.serve_forever()
