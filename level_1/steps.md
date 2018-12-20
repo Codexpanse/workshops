@@ -3,7 +3,7 @@
 1. Download and install VS Code from https://code.visualstudio.com/
 
 1. Install Chocolatey (https://chocolatey.org/install):
-    1. Select and copy this: `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
+    1. Select and copy: `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
     1. Press `Windows X` and choose `Command Prompt (Admin)`
     1. Right click inside the command prompt window and select "Paste"
     1. Hit `Enter`
@@ -20,7 +20,7 @@
 
 ---
 
-## Fow Apple macOS
+## For Apple macOS
 
 1. Download and install VS Code from https://code.visualstudio.com/
 
@@ -33,3 +33,9 @@
     
 1. Install Python using brew: `brew install python` OR download and install manually from https://www.python.org/downloads/
 
+---
+
+## Links
+
+1. Python3 web repl https://repl.it/languages/python3
+2. HTTP server code https://github.com/Codexpanse/workshops/blob/master/level_1/2_simple_HTTP_server/server.py
