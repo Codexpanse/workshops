@@ -16,7 +16,7 @@
     
 1. Install `netcat` using Chocolatey: `choco install netcat` 
     
-1. Install Python using Chocolatey: `choco install python` 
+1. Install Python using Chocolatey: `choco install python`. Or alternatively download and install Python manually from here https://www.python.org/downloads/
 
 ---
 
