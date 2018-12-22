@@ -1,3 +1,7 @@
+# Step 0: Install tools
+
+For both macOS and Windows - follow the instructions [here](https://github.com/Codexpanse/workshops/blob/master/level_1/steps.md).
+
 # Step 1: Internet vs Web
 
 - The Internet is the network of networks ([wiki](https://en.wikipedia.org/wiki/Internet)
@@ -10,21 +14,12 @@
 ![](https://i.imgur.com/1uarUI0.png)
 **[⬇ Download this PDF cheatsheet an HTTP ⬇](https://rakhim.org/ce/HTTP_notes_diagram_1.pdf)**
 
-# Step 2: Telnet client
+# Step 2: Netcat client
 
-## Telnet on Windows:
-
-1. [Enable telnet in Windows 10](https://social.technet.microsoft.com/wiki/contents/articles/38433.windows-10-enabling-telnet-client.aspx?Redirected=true)
-
-## Telnet on Mac:
-
-Macs have telnet built in, so nothing to install here.
-
-## Make a HTTP request via telnet
+## Make a HTTP request via netcat.
 
 ### Windows
-1. Type Windows Key + R to open the Run command dialog. 
-2. Type cmd and hit the Enter key.
+1. Run `cmder` installed in the previous step.
 
 ### macOS
 1. Launch `Terminal.app`
@@ -33,7 +28,7 @@ Macs have telnet built in, so nothing to install here.
 Type:
 
 ```
-telnet localhost 8080
+nc 127.0.0.1 8080
 Host: localhost
 ```
 
@@ -82,13 +77,6 @@ name = input("What's your name? ")
 print(message_1 + name)
 ```
 
-## Download tools
-
-- [Download Python interpreter](https://www.python.org/downloads/) (get version 3.7.1 or higher)
-- [VS Code editor](https://www.python.org/downloads/) (code and text editor)
-
-
-
 # Step 4: Create a simple HTTP server
 
 Even a simple HTTP server, which consists of just 4 lines of code, is a pretty complex program. Each line includes tens and tens of different concepts.
@@ -103,11 +91,18 @@ In the next workshops we will look back and cover the missing parts. I call this
 
 Here is the code:
 
-    import http.server
-    import socketserver
-    
-    with socketserver.TCPServer(("", 8080), http.server.SimpleHTTPRequestHandler) as httpd:
-        httpd.serve_forever()
+```python
+import http.server
+import socketserver
+
+host = "localhost"
+port = 8080
+
+server = socketserver.TCPServer((host, port), http.server.SimpleHTTPRequestHandler)
+
+print("Server started...")
+server.serve_forever()
+```
         
 Save this file as `server.py` in a folder called `server` on your Desktop, navigate to that folder in the Terminal:
 
@@ -136,4 +131,4 @@ python3 server.py
 
 # Step 5: Back to the client
 
-Now you repeat the HTTP request using the telnet app. You should see a response.
+Now you repeat the HTTP request using the netcat app. You should see a response.
