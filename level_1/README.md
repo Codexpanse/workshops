@@ -71,6 +71,18 @@ Write a program with `age` variable which should be a number (not a string). The
 - if age is between 18 and 60, then print "Go nuts!"
 - if age is above 60, then print "You shouldn't"
 
+## Drinking age 2
+
+Make your program validate the negative age and print "Wrong age!" for negative value.
+
+## Drinking age 3
+
+Make your program validate the type of value. If `age` is not a number, then print "Not a number!"
+
+## Drinking age 4
+
+Add more age brackets (e.g., between 45 and 51) with custom messages.
+
 ## Max of three
 
 Write a program with 3 variables `x`, `y` and `z`, and assign each variable a number. Then make it so that your program prints the largest number. For example, for numbers `5, 18, 2` your program should print `18`
@@ -80,3 +92,10 @@ Write a program with 3 variables `x`, `y` and `z`, and assign each variable a nu
 - If 2 numbers are the same and they are larger than the third, print that larger value. For example:
 `5, 5, 2` should print 5.
 
+## Min of three
+
+Do the same, but find the smallest number.
+
+## Min/Max of three with validation
+
+Just like in "Drinking age 3", check the variables to make sure they are numbers.
