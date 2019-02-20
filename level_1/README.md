@@ -1,6 +1,6 @@
 # Basics of Python
 
-Try out Python on [https://repl.it](https://repl.it). Login and choose "Python". Enter code in the right pane, hit `Run`.
+Try out Python on [https://repl.it](https://repl.it). Login and choose "Python 3". Enter code in the right pane, hit `Run`.
 
 String (text)
 
